@@ -1,0 +1,69 @@
+:root {
+    --primary: #0bbdd5;
+  }
+  
+  
+  /* Table design */
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid var(--primary);
+    text-align: left;
+    padding: 8px;
+  }
+  th{
+    color: var(--primary);
+  }
+  
+  tr:nth-child(even) {
+    background-color: var(--primary);
+    color: #fff;
+  }
+  
+  
+  /* Checkbox style */
+  
+  .cb{
+    margin: 4px;
+    overflow: hidden;
+    float: left;
+    margin-bottom: 20px;
+  }
+  
+  .cb label {
+    float: left; 
+   
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+  
+  .cb label span {
+    text-align: center;
+    background-color: #a2a3a5;
+    display: block;
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+  
+  .cb label input {
+    position: absolute;
+    display: none;
+    color: #fff
+  }
+  /* selects all of the text within the input element and changes the color of the text */
+  .cb label input + span{color: #fff;}
+  
+  
+  /* This will declare how a selected input will look giving generic properties */
+  .cb input:checked + span {
+      color: #ffffff;
+      text-shadow: 0 0  6px rgba(0, 0, 0, 0.8);
+  }
+  .action input:checked + span{
+    background-color: var(--primary);
+   
+  }
