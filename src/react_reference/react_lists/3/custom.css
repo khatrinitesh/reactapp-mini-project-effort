@@ -1,0 +1,51 @@
+*, *::before, *::after {
+  font-family: Gotham Rounded, sans-serif;
+}
+
+html {
+  font-size: 25px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+.btn {
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: inherit;
+    border-radius: 5px;
+    padding: 5px 20px;
+    cursor: pointer;
+  }
+  
+  .btn--primary {
+    color: white;
+    background-color: hsl(200, 100%, 50%);
+  }
+  
+  .btn--primary:hover {
+    background-color: hsl(200, 100%, 35%);
+  }
+
+  .recipe-list {
+    border-right: 1px solid black;
+    min-height: 100vh;
+    width: 50%;
+  }
+  
+  .recipe-list__add-recipe-btn-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .ingredient-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    row-gap: 5px;
+    column-gap: 40px;
+    justify-content: flex-start;
+  }

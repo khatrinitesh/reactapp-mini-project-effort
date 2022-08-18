@@ -38,6 +38,7 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-slick-carousel": "^0.14.9",
+    "react-spring": "^8.0.27",
     "react-table": "^7.8.0",
     "react-thunk": "^1.0.0",
     "react-tinder-card": "^1.4.5",
@@ -53,6 +54,8 @@
     "use-http": "^1.0.26",
     "use-media": "^1.4.0",
     "use-onclickoutside": "^0.4.1",
+    "uuid": "^3.3.3",
+    "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
