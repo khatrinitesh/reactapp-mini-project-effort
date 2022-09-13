@@ -1,0 +1,41 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+
+h1,h2,h3,h4,h5,h6,p{
+    margin:0 !important;
+    padding:0;
+}
+
+ul,ol{
+    list-style-type: none;
+}
+
+header{
+    background-color: #222;
+    ul{
+        display: flex;
+        li{
+            a{
+                color:#fff;
+                padding: 10px;
+                display: block;
+                &.active{
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
+
+.main_content{
+    min-height: calc(100vh - 108px);
+}
+
+footer{
+    background-color: #222;
+    color:#fff;
+    padding:20px;
+}
