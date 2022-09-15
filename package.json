@@ -49,6 +49,7 @@
     "redux-thunk": "^2.4.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
+    "swiper": "^8.4.0",
     "typescript": "^4.7.3",
     "use-clippy": "^1.0.8",
     "use-debounce": "^8.0.1",
