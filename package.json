@@ -36,7 +36,7 @@
     "react-loader-spinner": "^5.1.5",
     "react-onclickoutside": "^6.12.2",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-slick-carousel": "^0.14.9",
@@ -66,7 +66,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server" : "npx json-server --watch db.json --port 3001" 
+    "server": "npx json-server --watch db.json --port 3001"
   },
   "eslintConfig": {
     "extends": [

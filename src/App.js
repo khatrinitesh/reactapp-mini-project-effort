@@ -1,7 +1,8 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from './react_project/react_project25/app';
+import CustomApp from './react_project/react_project28/app';
+
 
 
 function App() {
