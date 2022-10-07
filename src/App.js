@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from './react_project/react_project29/app';
+import CustomApp from './react_project/react_project30/app';
 
 
 
