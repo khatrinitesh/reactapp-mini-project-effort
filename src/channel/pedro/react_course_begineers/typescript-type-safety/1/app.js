@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-
-export default function CustomApp(props) {    
+export default function CustomApp(props) {   
+     
   return (
     <div>
         <h1>Name: {props.name}</h1>
