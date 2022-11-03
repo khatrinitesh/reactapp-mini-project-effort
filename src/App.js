@@ -1,15 +1,14 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/channel/devamitjha/landinganimationframermotion/app';
-
+import AppHome from '../src/channel/joseph-kagimu/app';
 
 function App() {
   return (
     <>
-      <CustomApp/>
+      <AppHome/>
     </>
-  );
+  ); 
 }
 
 export default App;

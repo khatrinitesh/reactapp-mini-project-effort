@@ -1,0 +1,207 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.dflex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section{
+    position: relative;
+}
+
+.preloader{
+    position: absolute;
+    background-color: #065ceb;
+    inset:0;
+}
+
+.container {
+    @extend .dflex;
+    width:100%;
+    height: 100%;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+header{
+    @extend .dflex;
+    width: 100%;
+    padding: 0 60px;
+    height: 100px;
+    justify-content: space-between;
+    .logo_container{
+        @extend .dflex;
+        justify-content: flex-start;
+        .menu_icon{
+            @extend .dflex;
+            width: 25px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-right: 16px;
+            cursor: pointer;
+            span{
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border:1px solid #000;
+                border-radius: 100%;
+                &:nth-child(3){
+                    margin-top: 5px;
+                }
+                &:nth-child(4){
+                    margin-top: 5px;
+                }
+                &.filled{
+                    background-color: #000;
+                }
+            }
+        }
+        .logo{
+            font-size: 1.4vw;
+            font-weight: 700;
+        }
+    }
+
+    .user_info{
+        a{
+            font-size: .95vw;
+            color:#000;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            text-transform: uppercase;
+            font-weight: 600;
+            + a {
+                margin-left: 20px;
+                &:before{
+                    content:"/";
+                    left:-12px;
+                    position: absolute;
+                }
+            }
+        }
+    }
+    .search_container{
+        .fa{
+            font-size: .95vw;
+            cursor: pointer;
+        }
+    }
+}
+
+.image_container{
+    @extend .dflex;
+    width: 100%;
+    height: calc(100vh - 200px);
+    justify-content: space-between;
+    padding: 0 80px;
+    .images{
+        @extend .dflex;
+        width: 25vw;
+        position: relative;
+        img{
+            display: block;
+            width: 25vw;
+        }
+        &.fashion{
+            img{
+                filter:drop-shadow(8px 12px 22px #065ceb)
+            }
+            .stars{
+                transform: rotate(-20deg);
+                position: absolute;
+                left: 4vw;
+                top:0;
+                z-index: 1;
+                .fa{
+                    color:#b46660;
+                }
+            }
+        }
+        .title{
+            position: relative;
+            font-size: 5vw;
+            letter-spacing: 2px;
+            position: absolute;
+            bottom: -1vw;
+            -webkit-text-stroke:1px #fff;
+            -webkit-text-ill-color: #065ceb;
+            transform: rotate(-5deg);
+        }
+        .stars{
+            font-size: 1vw;
+            @extend .dflex;
+            flex-direction: column;
+            span{
+                font-weight: 600;
+            }
+            .fa{
+                width: 3vw;
+                height: 3vw;
+                background-color: #000;
+                color:#fff;
+                border-radius: 100%;
+                @extend .dflex;
+                margin-top: .5vw;
+                cursor: pointer;
+            }
+        }
+        &.wedding{
+            img{
+                filter:drop-shadow(8px 12px 22px #a5aa94)
+            }
+            .stars{
+                transform: rotate(-20deg);
+                position: absolute;
+                left: 4vw;
+                top:0;
+                z-index: 1;
+                .fa{
+                    color:#b46660;
+                }
+            }
+        }
+    }
+}
+
+
+.more{
+    @extend .dflex;
+    padding: 0 50px;
+    width: 100%;
+    flex-direction: column;
+    .fa{
+        cursor: pointer;
+        font-size: 2vw;
+        color:#ff3300;
+        filter: drop-shadow(-1px 0 10px #ff3300);
+    }
+    a{
+        font-weight: 600;
+        font-size: 14px;
+        color:#000;
+        text-decoration: none;
+    }
+}
+
+.overlay_menu{
+    position: absolute;
+    inset:0;
+    background-color: #000;
+    z-index: 10;
+    display: none;
+    .item{
+        width: 33.33%;
+        height: 100vh;
+        @extend .dflex;
+        flex-direction: column;
+        color:#fff;
+    }
+}
