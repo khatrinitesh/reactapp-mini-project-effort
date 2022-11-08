@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from './channel/steve-griffith/react-styledcomponents-theme/app';
+import CustomApp from './react_project/react_project32/app';
 
 function App() {
   return (

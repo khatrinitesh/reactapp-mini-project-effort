@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol{
+    margin:0 !important;
+    padding:0;
+}
+
+ul,ol{
+    list-style-type: none;
+}
+
+header{
+    background-color: #000;
+    ul{
+        display: flex;
+        li{
+            a{
+                color:#fff;
+                display: block;
+                padding: 5px 10px;
+                &.active{
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
+
+.main_content{
+    min-height: calc(100vh - 58px);
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+footer{
+    background-color: #333;
+    color:#fff;
+}
