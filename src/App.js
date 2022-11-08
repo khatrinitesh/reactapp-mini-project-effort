@@ -1,14 +1,15 @@
 
 import React from 'react';
 import './App.css';
-import AppHome from '../src/channel/joseph-kagimu/app';
+import CustomApp from './channel/steve-griffith/react-styledcomponents-theme/app';
 
 function App() {
   return (
     <>
-      <AppHome/>
+      <CustomApp/>
     </>
   ); 
 }
 
 export default App;
+  
