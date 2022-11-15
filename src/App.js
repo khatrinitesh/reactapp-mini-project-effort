@@ -1,7 +1,9 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/channel/javascript-mastery/react-modern-app/app';
+import CustomApp from '../src/linkedin/pushpendra/inline-styles-with-react/1/app';
+
+
 
 function App() {
   return (
