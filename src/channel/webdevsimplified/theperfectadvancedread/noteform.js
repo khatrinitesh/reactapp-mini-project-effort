@@ -9,12 +9,9 @@ export default function NoteForm() {
     const titleRef = useRef(null)
     const markdownRef = useRef(null)
 
-    function handleSubmit(e){
-        e.preventDefault();
-        title:titleRef.current.value,
-        markdown:markdownRef.current.value,
-        tags:[],
-    }
+    // function handleSubmit(e){
+    //     e.preventDefault();
+    // }
   return (
     <div>
       <Form>

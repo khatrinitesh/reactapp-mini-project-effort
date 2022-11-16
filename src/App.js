@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/channel/webdevsimplified/theperfectadvancedread/app';
+import CustomApp from '../src/channel/coding-monks/how-to-fetch-from-json-file-react/app';
 
 
 function App() {
