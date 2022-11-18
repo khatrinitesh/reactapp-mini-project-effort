@@ -1,17 +1,19 @@
 import React from 'react';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import './custom.scss'
+
+const Home = React.lazy(() => import('./pages/home.js'));
+const About = React.lazy(() => import('./pages/about.js'));
+const Service = React.lazy(() => import('./pages/service.js'));
+const Contact = React.lazy(() => import('./pages/contact.js'));
+const Error = React.lazy(() => import('./pages/error.js'));
+const CustomMain = React.lazy(() => import('./main.js'));
 
 
-const Home = React.lazy(() => './pages/home.js');
-const About = React.lazy(() => './pages/about.js');
-const Service = React.lazy(() => './pages/service.js');
-const Contact = React.lazy(() => './pages/contact.js');
-const Error = React.lazy(() => './pages/error.js');
-
-const CustomMain = React.lazy(() => './pages/main.js');
 
 export default function CustomApp() {
   return (
+    <React.Suspense fallback={<div>Loading...</div>}>
     <Router>
       <Routes>
        <Route path="/" element={<CustomMain/>}> 
@@ -23,5 +25,6 @@ export default function CustomApp() {
        <Route path="*" element={<Error/>}/>
       </Routes>
     </Router>
+    </React.Suspense>
   )
 }

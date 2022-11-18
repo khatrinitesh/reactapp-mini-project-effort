@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <ul>
         <li>
-            <NavLink to="/" activeClassName="active">Home</NavLink>
+            <NavLink  end to="/" activeClassName="active">Home</NavLink>
         </li>
         <li>
             <NavLink to="/about" activeClassName="active">About</NavLink>
