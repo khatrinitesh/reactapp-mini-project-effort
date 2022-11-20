@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/linkedin/pushpendra/ternary-opeartor/1/app';
+import CustomApp from '../src/channel/devtips/concept-react/1/app';
 
 
 function App() {
