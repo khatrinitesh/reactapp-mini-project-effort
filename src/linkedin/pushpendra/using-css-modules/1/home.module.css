@@ -1,0 +1,12 @@
+.container{
+    width: 500px;
+    margin:1rem auto;
+    border:1px solid orange;
+    padding:1rem;
+}
+
+.heading{
+    font-weight: 600;
+    background-color: orange;
+    color:greenyellow;
+}
