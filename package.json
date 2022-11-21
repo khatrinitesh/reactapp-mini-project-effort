@@ -54,6 +54,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.8",
     "react-select": "^5.6.1",
     "react-slick": "^0.29.0",
     "react-slick-carousel": "^0.14.9",
