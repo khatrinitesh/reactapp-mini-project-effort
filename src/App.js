@@ -1,8 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/linkedin/pushpendra/ifcondition/1/app';
-
+import CustomApp from '../src/channel/frontend-zone/rating-interactive-component/app';
 
 function App() {
   return (
