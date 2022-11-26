@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/linkedin/pushpendra/How-to-pass-a-Function-as-props-in-React/1/app';
+import CustomApp from '../src/linkedin/pushpendra_tripathi/Using-the-Switch-Statement/1/app';
 
 
 function App() {
