@@ -30,6 +30,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^7.6.2",
     "gsap": "^3.11.3",
+    "jquery": "^3.6.1",
     "json-server": "^0.17.0",
     "moment": "^2.29.3",
     "next": "^13.0.1",

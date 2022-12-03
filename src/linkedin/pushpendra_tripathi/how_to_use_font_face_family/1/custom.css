@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Monsterrat';
+    font-weight: 400;
+    font-style: italic;
+    src:local('Monsterrat'),url('./montserrat-regular.ttf') format(truetype);
+  }
+
+  h1{
+    font-family: 'Monsterrat';
+  }

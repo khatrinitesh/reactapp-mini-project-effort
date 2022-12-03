@@ -1,7 +1,8 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/channel/coders-hub/build-todo-firebase-reactapp/1/app';
+import CustomApp from '../src/linkedin/pushpendra_tripathi/howtousejquery/1/app';
+
 
 function App() {
   return (
