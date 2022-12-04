@@ -1,8 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/channel/pedro/react_course_begineers/firebase/app';
-
+import CustomApp from '../src/linkedin/pushpendra_tripathi/howtousetypographyasastyledcomponentmaterialui/1/app';
 
 function App() {
   return (
