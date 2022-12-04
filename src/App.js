@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/linkedin/pushpendra_tripathi/howtousejquery/1/app';
+import CustomApp from '../src/channel/pedro/react_course_begineers/firebase/app';
 
 
 function App() {
