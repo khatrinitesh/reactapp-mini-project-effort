@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/linkedin/pushpendra_tripathi/json.parsemethod/1/app';
+import CustomApp from '../src/channel/thenetninja/reactrouter/1/app';
 
 
 function App() {
