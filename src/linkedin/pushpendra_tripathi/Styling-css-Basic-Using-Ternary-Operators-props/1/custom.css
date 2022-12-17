@@ -1,0 +1,22 @@
+.Head1{
+    color: red;
+}
+
+.Head2{
+    color: green;
+}
+
+.Head3{
+    font-size: 60px;
+}
+
+.Bg1{
+    background-color: orange;
+}
+.Bg2{
+    background-color: yellow;
+}
+
+.BgProperty{
+    font-size: 30px;
+}
