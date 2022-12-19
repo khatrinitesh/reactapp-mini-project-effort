@@ -59,6 +59,7 @@
     "react-select": "^5.6.1",
     "react-slick": "^0.29.0",
     "react-slick-carousel": "^0.14.9",
+    "react-smart-slider": "^0.1.2",
     "react-spring": "^8.0.27",
     "react-table": "^7.8.0",
     "react-thunk": "^1.0.0",
