@@ -1,0 +1,15 @@
+$myColor:red;
+$myWhiteColor:#fff;
+$fontSize:20px;
+$backgroundColor:orange;
+$backgroundColorHover:blue;
+
+h1{
+    background-color: $backgroundColor;
+    color:$myColor;
+    font-size: $fontSize;
+    &:hover{
+        background-color:$backgroundColorHover ;
+        color:$myWhiteColor
+    }
+}
