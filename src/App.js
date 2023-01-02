@@ -1,8 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/linkedin/pushpendra_tripathi/howtoefficientlystyletableinline/1/app';
-
+import CustomApp from '../src/react_repository/react_pagination/1/app';
 
 
 function App() {
