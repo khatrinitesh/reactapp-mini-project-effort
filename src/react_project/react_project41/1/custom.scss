@@ -1,12 +1,21 @@
 ul,ol{
     list-style-type: none;
-    margin:0;
+    margin:0 !important;
     padding:0;
 }
 
-
+// header
 header{
     background-color: #222;
+    transition:all .4s linear;
+    &.scrolled{
+        background-color: rgba(52,152,219,.9);
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        transition:all .4s linear;
+    }
     ul{
         display: flex;
         li{
@@ -21,4 +30,34 @@ header{
             }
         }
     }
+}
+
+// main content
+.main_content{
+    min-height: 100vh;
+    background-color: #ccc;
+    padding: 30px;
+}
+
+// footer
+footer{
+    background-color: #222;
+    color:#fff;
+    padding: 10px;
+    p{
+        margin:0;
+        padding: 0;
+    }
+}
+
+// scroll back top 
+.icon-position{
+    cursor: pointer;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: red;
+    width: 30px;
+    height: 30px;
+    color: #fff;
 }

@@ -42,6 +42,8 @@
     "react": "^18.1.0",
     "react-beautiful-dnd": "^13.1.0",
     "react-bootstrap": "^2.5.0",
+    "react-calendar": "^4.0.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.1.0",
     "react-filter-search": "^1.1.11",
     "react-hanger": "^2.4.4",

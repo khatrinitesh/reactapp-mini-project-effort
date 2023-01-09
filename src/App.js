@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/react_project/react_project41/1/app';
+import CustomApp from '../src/linkedin/pushpendra_tripathi/clickyourownawaylistener/1/app';
 
 
 

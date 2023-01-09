@@ -1,11 +1,14 @@
 import React,{useState,useEffect} from 'react';
 import Banner from '../components/banner';
+import DataTable from '../components/datatable';
+
 
 export default function Service() {
     
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [errorMsg,setErrorMsg] = useState('');
+
 
 
 
@@ -23,13 +26,15 @@ export default function Service() {
         })
     }
 
-    
   return (
     <div className='content'>
     <Banner bannerTitle="Service" bannerDesc="Lorem Ipsum"/>
+  
+    <hr/>
     {isLoading ? <div>Loading...</div> : null}
     {errorMsg && <div className="error">{errorMsg}</div>}
     <button onClick={handleFetch}>Fetch Users</button>
+   
     {users.map((val,index) => {
         return(
             <div className='user_container' key={index}>
@@ -42,6 +47,8 @@ export default function Service() {
             </div>
         )
     })}
+    <hr/>
+    <DataTable/>
     </div>
   )
 }

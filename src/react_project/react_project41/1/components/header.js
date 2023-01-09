@@ -1,9 +1,31 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default function Header() {
+  const [scrolled,setScrolled]= useState(false);
+
+  const handleScroll=() => {
+    const offset = window.scrollY;
+    if(offset > 200 ){
+      setScrolled(true);
+    }
+    else{
+      setScrolled(false);
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll',handleScroll)
+  })
+
+
+  let x=['navbar'];
+  if(scrolled){
+    x.push('scrolled');
+  }
+
+
   return (
-    <header>
+    <header className={x.join(" ")}>
       <ul>
         <li>
             <NavLink to="/" activeClassName="active">Home</NavLink>
