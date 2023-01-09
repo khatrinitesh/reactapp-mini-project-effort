@@ -1,0 +1,24 @@
+ul,ol{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+
+header{
+    background-color: #222;
+    ul{
+        display: flex;
+        li{
+            a{
+                color:#fff;
+                text-decoration: none;
+                display: block;
+                padding: 10px;
+                &.active{
+                    color:red;
+                }
+            }
+        }
+    }
+}
