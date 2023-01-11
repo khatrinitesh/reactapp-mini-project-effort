@@ -1,0 +1,99 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+ul,ol,p{
+    list-style-type: none;
+    margin:0 !important;
+    padding: 0;
+}
+
+header{
+    background-color: #222;
+    ul{
+        display: flex;
+        li{
+            a{
+                color:#fff;
+                display: block;
+                padding: 10px 20px;
+                &.active{
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
+
+.banner_content{
+    padding: 50px 30px;
+    background-color: #ccc;
+}
+
+.main_content{
+    min-height: calc(100vh - 88px);
+    background-color: #f9f9f9;
+}
+.error_content{
+    background-color: #ef6566;
+    height: 100vh;
+}
+
+footer{
+    padding: 10px;
+    background-color: #222;
+    color:#fff;
+}
+
+#year-options {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+  }
+  .car-image {
+    width: 200px;
+    height: 180px;
+  }
+  #car-list {
+    display: grid;
+    gap: 20px;
+    min-height: 480px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .car-item {
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+    background-color: #fafafa;
+    border: 1px solid black;
+    padding: 10px;
+    gap: 5px;
+  }
+  .filter-option,
+  .active-option {
+    padding: 10px 20px;
+    min-width: 50px;
+    border-radius: 2rem;
+  }
+  .brand-filter {
+    display: flex;
+    margin: 15px;
+  }
+  #brand-input {
+    width: 80px;
+    margin: 0 10px;
+    height: 30px;
+  }
+  .filter-option:hover,
+  .active-option {
+    background-color: #48b393;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    transition: all 0.1s;
+  }
