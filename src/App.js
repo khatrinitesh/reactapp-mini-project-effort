@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/react_reference/react_hooks/react_useref/5/app';
+import CustomApp from '../src/channel/thenetninja/chakraui/1/app';
 
 
 
