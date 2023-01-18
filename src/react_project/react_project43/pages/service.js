@@ -48,6 +48,7 @@ export default function Service() {
     }
   return (
     <div className='content'>
+        <h3 className='bg-green-500'>Service page</h3>
         <Banner bannerTitle="Service" bannerDesc="Lorem Ipsum"/>
         {user.map((val,index) => {
             return(
