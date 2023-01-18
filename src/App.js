@@ -1,8 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/channel/thenetninja/chakraui/1/app';
-
+import CustomApp from '../src/react_project/react_project43/app';
 
 
 function App() {
