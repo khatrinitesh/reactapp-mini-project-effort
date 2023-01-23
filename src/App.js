@@ -1,7 +1,8 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/linkedin/pushpendra_tripathi/passingdatafromparenttochild/1/app';
+import CustomApp from '../src/react_project/react_project44/app';
+
 
 function App() {
   return (  
