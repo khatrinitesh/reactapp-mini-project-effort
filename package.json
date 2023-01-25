@@ -43,6 +43,7 @@
     "react": "^18.1.0",
     "react-beautiful-dnd": "^13.1.0",
     "react-bootstrap": "^2.5.0",
+    "react-burger-menu": "^3.0.9",
     "react-calendar": "^4.0.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.1.0",
