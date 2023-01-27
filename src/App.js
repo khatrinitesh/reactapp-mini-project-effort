@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import CustomApp from '../src/react_repository/react_icon_hamburger/1/app';
+import CustomApp from '../src/react_project/react_project46/app';
 
 
 function App() {
@@ -12,6 +12,6 @@ function App() {
   ); 
 }
 
-export default App;
+export default App; 
   
   
