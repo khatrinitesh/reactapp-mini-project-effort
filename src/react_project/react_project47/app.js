@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import './custom.scss';
 
 import Home from './pages/home';
 import About from './pages/about';
@@ -9,9 +9,6 @@ import Contact from './pages/contact';
 import Error from './pages/error';
 
 import MainLayout from './mainlayout';
-
-import './custom.scss';
-
 
 export default function CustomApp() {
   return (
@@ -28,5 +25,3 @@ export default function CustomApp() {
     </Router>
   )
 }
-
-
