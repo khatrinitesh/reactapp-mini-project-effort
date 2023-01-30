@@ -4,7 +4,7 @@ export default function productdetail() {
   return (
     <>
       <div className="blog-details">aads
-        </div>
+      </div>
     </>
   )
 }
