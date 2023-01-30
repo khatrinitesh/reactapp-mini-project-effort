@@ -37,7 +37,7 @@
     "gsap": "^3.11.3",
     "hamburger-react": "^2.5.0",
     "jquery": "^3.6.1",
-    "json-server": "^0.17.0",
+    "json-server": "^0.17.1",
     "moment": "^2.29.3",
     "next": "^13.0.1",
     "node-sass": "^7.0.1",
@@ -109,7 +109,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "npx json-server --watch db.json --port 3001"
+    "server": "npx json-server --watch user.json --port 3001"
   },
   "eslintConfig": {
     "extends": [
