@@ -21,7 +21,7 @@ export default function app() {
                 <Route path="/service" element={<Service/>}/>
                 <Route path="/contact" element={<Contact/>}/>
             </Route>
-            <Route path="**" element={<Error/>}/>
+            <Route path="*" element={<Error/>}/>
         </Routes>
     </Router>
     </React.Suspense>
