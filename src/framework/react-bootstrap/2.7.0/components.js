@@ -1,11 +1,18 @@
-import React,{useState,useEffect} from 'react';
-import {Alert,Button,Accordion,Modal,Tab,Sonnet,CardGroup,Nav,Badge ,Breadcrumb,ButtonGroup,ButtonToolbar,InputGroup,Form,Dropdown,DropdownButton ,Card,ListGroup,Carousel,Row,Col,SplitButton,Figure  } from 'react-bootstrap';
+import React,{useState,useEffect,useRef} from 'react';
+import {Button,Modal,Tab,CardGroup,Nav,Badge ,Breadcrumb,ButtonGroup,ButtonToolbar,InputGroup,Form,Dropdown,DropdownButton ,Card,ListGroup,Carousel,Row,Col,SplitButton,Figure ,NavDropdown ,Container,Navbar,Offcanvas,Overlay,OverlayTrigger ,Tooltip,Image,Pagination,Placeholder,Popover,ProgressBar } from 'react-bootstrap';
 
 function simulateNetworkRequest() {
   return new Promise((resolve) => setTimeout(resolve, 2000));
 }
 
 export default function CustomCompnents() {
+
+   const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Simple tooltip
+    </Tooltip>
+  );
+  
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -32,9 +39,280 @@ export default function CustomCompnents() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const target = useRef(null);
+  const now = 60;
+  
   return(
     <>
+
+    {/* PROGRESS */}
+    <ProgressBar variant="success" now={40} />
+    <ProgressBar variant="info" now={20} />
+    <ProgressBar variant="warning" now={60} />
+    <ProgressBar variant="danger" now={80} />
+    <ProgressBar now={60} label={`${now}%`}  variant='success' />;
+    <ProgressBar now={60} />;
+    {/* POPOVER */}
+    <Example/>
+    {/* PLACEHOLDER */}
+    <Placeholder as="p" animation="glow">
+        <Placeholder xs={12} />
+      </Placeholder>
+      <Placeholder as="p" animation="wave">
+        <Placeholder xs={12} />
+      </Placeholder>
+      <Placeholder xs={12} />
+      <Placeholder xs={12} bg="primary" />
+      <Placeholder xs={12} bg="secondary" />
+      <Placeholder xs={12} bg="success" />
+      <Placeholder xs={12} bg="danger" />
+      <Placeholder xs={12} bg="warning" />
+      <Placeholder xs={12} bg="info" />
+      <Placeholder xs={12} bg="light" />
+      <Placeholder xs={12} bg="dark" />
+
+    <div className="d-flex justify-content-around">
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
+
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Body>
+          <Placeholder as={Card.Title} animation="glow">
+            <Placeholder xs={6} />
+          </Placeholder>
+          <Placeholder as={Card.Text} animation="glow">
+            <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+            <Placeholder xs={6} /> <Placeholder xs={8} />
+          </Placeholder>
+          <Placeholder.Button variant="primary" xs={6} />
+        </Card.Body>
+      </Card>
+    </div>
+    {/* PAGINATION */}
+    <Pagination>
+      <Pagination.First />
+      <Pagination.Prev />
+      <Pagination.Item>{1}</Pagination.Item>
+      <Pagination.Ellipsis />
+
+      <Pagination.Item>{10}</Pagination.Item>
+      <Pagination.Item>{11}</Pagination.Item>
+      <Pagination.Item active>{12}</Pagination.Item>
+      <Pagination.Item>{13}</Pagination.Item>
+      <Pagination.Item disabled>{14}</Pagination.Item>
+
+      <Pagination.Ellipsis />
+      <Pagination.Item>{20}</Pagination.Item>
+      <Pagination.Next />
+      <Pagination.Last />
+    </Pagination>
+
+    {/* OVERLAY */}
+    <OverlayTrigger
+      placement="bottom"
+      overlay={<Tooltip id="button-tooltip-2">Check out this avatar</Tooltip>}
+    >
+      {({ ref, ...triggerHandler }) => (
+        <Button
+          variant="light"
+          {...triggerHandler}
+          className="d-inline-flex align-items-center"
+        >
+          <Image
+            ref={ref}
+            roundedCircle
+            src="holder.js/20x20?text=J&bg=28a745&fg=FFF"
+          />
+          <span className="ms-1">Hover to see</span>
+        </Button>
+      )}
+    </OverlayTrigger>
+
+    <OverlayTrigger
+      placement="right"
+      delay={{ show: 250, hide: 400 }}
+      overlay={renderTooltip}
+    >
+      <Button variant="success">Hover me to see</Button>
+    </OverlayTrigger>
+
+    <Button variant="danger" ref={target} onClick={() => setShow(!show)}>
+        Click me to see
+      </Button>
+      <Overlay target={target.current} show={show} placement="right">
+        {({
+          placement: _placement,
+          arrowProps: _arrowProps,
+          show: _show,
+          popper: _popper,
+          hasDoneInitialMeasure: _hasDoneInitialMeasure,
+          ...props
+        }) => (
+          <div
+            {...props}
+            style={{
+              position: 'absolute',
+              backgroundColor: 'rgba(255, 100, 100, 0.85)',
+              padding: '2px 10px',
+              color: 'white',
+              borderRadius: 3,
+              ...props.style,
+            }}
+          >
+            Simple tooltip
+          </div>
+        )}
+      </Overlay>
+
+    {/* OFFCANVAS */}
+    <Button variant="primary" onClick={handleShow}>
+        Launch
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+    {/* START NAVBAR */}
+    <Container>
+      <Navbar expand="lg" variant="light" bg="light">
+        <Container>
+          <Navbar.Brand href="#">Navbar</Navbar.Brand>
+        </Container>
+      </Navbar>
+    </Container>
+
+    <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      <br />
+      <Navbar  bg="primary" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+
+      <br />
+      <Navbar bg="light" variant="light">
+        <Container>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="#pricing">Pricing</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+
+    <Navbar>
+      <Container>
+        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            Signed in as: <a href="#login">Mark Otto</a>
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
     {/* START NAV */}
+     <Nav variant="tabs" defaultActiveKey="/about">
+      <Nav.Item>
+        <Nav.Link href="/home">Active</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/about" eventKey="link-1">Option 2</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="disabled" disabled>
+          Disabled
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
+    <Nav defaultActiveKey="/about" as="ul">
+      <Nav.Item as="li">
+        <Nav.Link href="/home">Active</Nav.Link>
+      </Nav.Item>
+      <Nav.Item as="li">
+        <Nav.Link href="/about" eventKey="link-1">Link</Nav.Link>
+      </Nav.Item>
+      <Nav.Item as="li">
+        <Nav.Link eventKey="link-2">Link</Nav.Link>
+      </Nav.Item>
+    </Nav>
+    
+    <Nav
+      activeKey="/home"
+      onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+    >
+      <Nav.Item>
+        <Nav.Link href="/home">Active</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-1">Link</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link-2">Link</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="disabled" disabled>
+          Disabled
+        </Nav.Link>
+      </Nav.Item>
+    </Nav>
+
     
     {/* MODAL */}
     <Button variant="primary" onClick={handleShow}>
@@ -1253,3 +1531,21 @@ export default function CustomCompnents() {
 //     </div>
 //   )
 }
+
+
+const popover = (
+  <Popover id="popover-basic">
+    <Popover.Header as="h3">Popover right</Popover.Header>
+    <Popover.Body>
+      And here's some <strong>amazing</strong> content. It's very engaging.
+      right?
+    </Popover.Body>
+  </Popover>
+);
+
+
+const Example = () => (
+  <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+    <Button disabled  variant="success">Click me to see</Button>
+  </OverlayTrigger>
+);
