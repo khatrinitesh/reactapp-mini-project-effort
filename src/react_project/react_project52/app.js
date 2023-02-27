@@ -8,6 +8,7 @@ const About = React.lazy(() => import('./pages/about'));
 const Service = React.lazy(() => import('./pages/service'));
 const Contact = React.lazy(() => import('./pages/contact'));
 const Error = React.lazy(() => import('./pages/error'));
+
 const MainLayout = React.lazy(() => import('./mainlayout'));
 
 export default function app() {
