@@ -1,8 +1,11 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d902be640f29ac20838702ffa91e7d6fe6587d3b
 export default function Header() {
   return (
     <header>
