@@ -2,7 +2,7 @@
 import React from 'react';
 import './App.css';
 // import CustomApp from '../src/framework/react-bootstrap/2.7.0/documentation';
-import CustomApp from '../src/react_project/react_project59/app';
+import CustomApp from '../src/template/template1/app';
 
 function App() {
   return (  
