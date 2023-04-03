@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import RequestCallback from '../components/requestcallback';
 
 export default function ContactUs() {
   return (
-    <div clasName="content">
-        ContactUs page
-    </div>
+    <>
+      <RequestCallback/>
+    </>
   )
 }

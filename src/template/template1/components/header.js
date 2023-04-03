@@ -1,28 +1,23 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <header className="header_section">
+    <>
+    <div className="header_section">
         <div className="container">
             <nav className="navbar navbar-expand-lg custom_nav-container">
-            <a
-                className="navbar-brand"
-                href="https://www.free-css.com/free-css-templates"
-            >
-                <img src={require('../img/logo.png')} alt="website template image" />{" "}
+            <Link className="navbar-brand" to="/">
+                <img src={require('../img/logo.png')} alt="website template image" />
                 <span>Brighton</span>
-            </a>
+            </Link>
             <button
                 className="navbar-toggler"
                 type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
             >
-                <span className="navbar-toggler-icon" />
+                <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <div className="d-flex ml-auto flex-column flex-lg-row align-items-center">
@@ -54,7 +49,8 @@ export default function Header() {
             </div>
             </nav>
         </div>
-        </header>
+    </div>
+    </>
 
   )
 }

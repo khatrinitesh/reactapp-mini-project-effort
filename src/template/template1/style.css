@@ -251,7 +251,8 @@ body {
 .hero_area {
     position: relative;
     background-color: #78853f;
-    height: 85vh
+    height: 85vh;
+    padding: 0 0 100px;
 }
 
 .sub_page .hero_area {
@@ -369,7 +370,8 @@ a:hover {
     margin: 0 auto;
     -webkit-transform: translateY(50px);
     transform: translateY(50px);
-    height: 95%;
+    height: 95vh;
+    padding: 0 0 100px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -431,7 +433,7 @@ a:hover {
     background-color: #f8f0e9
 }
 
-.slider_section ol.carousel-indicators {
+.slider_section .carousel-indicators {
     margin: 0;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
@@ -442,7 +444,7 @@ a:hover {
     align-items: center
 }
 
-.slider_section ol.carousel-indicators li {
+.slider_section .carousel-indicators button {
     width: 20px;
     height: 20px;
     opacity: 1;
@@ -450,7 +452,7 @@ a:hover {
     border-radius: 100%
 }
 
-.slider_section ol.carousel-indicators li.active {
+.slider_section .carousel-indicators button.active {
     background-color: transparent;
     border: 3px solid #fefdfc
 }
@@ -509,7 +511,7 @@ a:hover {
 }
 
 .offer_section .content-box .detail-box p {
-    margin: 0
+    margin: 0;
 }
 
 .about_section {
@@ -817,7 +819,7 @@ a:hover {
         font-size: 3rem
     }
 
-    .slider_section ol.carousel-indicators {
+    .slider_section .carousel-indicators {
         justify-content: center
     }
 
@@ -879,4 +881,33 @@ a:hover {
     .container {
         max-width: 1170px
     }
+}
+
+iframe{
+    width: 100%;
+}
+
+.main_content{
+    min-height: calc(100vh - 988px);
+    background-color: #90973b;
+}
+.main_content .offer_section {
+    background-color: #fff;
+}
+
+/* scroll back top  */
+.scroll-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    background: #7a772d;
+    display: block;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.scroll-to-top h3{
+    margin:0;
 }
