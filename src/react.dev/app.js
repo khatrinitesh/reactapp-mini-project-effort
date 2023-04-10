@@ -1,9 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import getImageUrl from './utils';
 import {people} from './data';
+// import { itemClassName } from 'react-horizontal-scrolling-menu/dist/types/constants';
 // import { DateRange } from '@material-ui/icons';
+import {sculptureList} from './data2';
 
 export default function CustomApp() {
+
   return (
     <div>
         {/* <Card>
@@ -30,43 +33,217 @@ export default function CustomApp() {
         {/* <Recipe drinkers={2}/> */}
         {/* <ExampleAlert message="uploading">Example 1</ExampleAlert>
         <ExampleAlert message="Alert">Example 2</ExampleAlert> */}
-        <Upload/>
+        {/* <Upload/>
         <hr/>
-        <Alert messagebox="this is a paragraph"/>
+        <Alert messagebox="this is a paragraph"/> */}
+        {/* <Item name="nitesh" isPacked={true}/>
+        <br/>
+        <Item name="sameet" isPacked={true}/>
+        <br/>
+        <Item name="arvind" isPacked={true}/>
+        <br/>
+        <Item name="urvashi" isPacked={true}/>
+        <br/>
+        <Item name="manisha" isPacked={false}/>
+        <br/> */}
+        {/* <ToggleSwitch/> */}
+        <TrafficLight/>
+
     </div>
   )
 }
 
-function Button({onClick,children}){
+
+function TrafficLight(){
+    const [text,setText] = useState(true)
+
+    function changeToggle(){
+        setText(!text);
+    }
     return(
         <>
-         <button onClick={onClick}>{children}</button>
+         <button onClick={changeToggle}>Change to {text ? 'Stop' : 'Walk'}</button>
+         {text ? <Walk/> : <Stop/>}
         </>
     )
 }
 
-function Upload(){
-    function updateHandle(){
-        console.log('update upload')
-    }
+function Walk(){
     return(
         <>
-         <Button onClick={updateHandle}>Click upload</Button>
+         <span className="textgreen">Walk</span>
+        </>
+    )
+}
+function Stop(){
+    return(
+        <>
+         <span className="textred">Stop</span>
         </>
     )
 }
 
-function Alert({messagebox}){
-    function updateAlert(){
-        console.log('update alert')
+function Form(){
+
+    const [to,setTo] = useState('Nitesh');
+    const [message,setMessage] = useState('Hi');
+
+    const handleSubmit= (e) => {
+        e.preventDefault();
+        setTimeout(() => {
+            console.log(`you said ${message} to ${to}`)
+        },1000)
     }
     return(
         <>
-        {messagebox}
-         <Button onClick={updateAlert}>Click alert</Button>
+         <form onSubmit={handleSubmit}>
+            <label>
+                to: {" "}
+                <select value={to} onChange={e => setTo(e.target.value)}>
+                    <option value="nitesh">Nitesh</option>
+                    <option value="sameet">Sameet</option>
+                </select>
+            </label>
+            <textarea value={message} onChange={(e) => setMessage(e.target.value)}/>
+            <button>Send</button>
+         </form>
         </>
     )
 }
+
+
+
+function Counter(){
+
+    const [counter,setCounter] = useState(0);
+
+    const btnCount= () => {
+        setCounter(counter  + 5)
+    }
+    return(
+        <>
+        {counter}
+         <button onClick={btnCount}>+3</button>
+        </>
+    )
+}
+
+// function Project(){
+
+//     const [index,setIndex] = useState(0)
+//     const [showMore,setShowMore] = useState(false)
+
+//     let sculpture = sculptureList[index];
+
+//     function handleClick(){
+//         setIndex(index + 1)
+//     }
+
+//     function btnToggle(){
+//         setShowMore(!showMore)
+//     }
+//     return(
+//         <>
+//          <button onClick={handleClick}>Next</button>
+//          <h2>{sculpture.name}</h2>
+//          <p>({index + 1} of sculptureList.length)</p>
+//          <button onClick={btnToggle}>{showMore ? 'hide details' : 'show details'}</button>
+//          {showMore && <p>{sculpture.description}</p>}
+//          <br/>
+//          <img src={sculpture.url} alt={sculpture.name}/>
+//         </>
+//     )
+// }
+
+// function ToggleSwitch(){
+
+//     function btnToggle(){
+//         let docbody = document.body.style;
+//         if(docbody.backgroundColor === 'black'){
+//             docbody.backgroundColor = 'white';
+//         }
+//         else{
+//             docbody.backgroundColor = 'black';
+//         }
+//     }
+//     return(
+//         <>
+//          <button onClick={btnToggle}>Click toggle</button>
+//         </>
+//     )
+// }
+
+
+// function FormExample(){
+//     return(
+//         <form onSubmit={(e) => console.log('submitting')}>
+//             <input type='text'/>
+//             <button>Send</button>
+//         </form>
+//     )
+// }
+
+// function Item({name,isPacked}){
+
+//     let itemContent = name;
+//     if(isPacked){
+//         itemContent = name + ' ✔';
+//     }
+//     return(
+//         <li className="item">{itemContent}</li>
+//     )
+// }
+
+// function Item({name,isPacked}){
+//     return(
+//         <>
+//          {name} - {isPacked && '✔'}
+//         </>
+//     )
+// }
+
+// function Item({name,isPacked}){
+//     return(
+//         <>
+//          <li className='item'>
+//             {isPacked ? (
+//                 <del>{name + '✔'}</del>
+//             ) : (name)}
+//          </li>
+//         </>
+//     )
+// }
+
+// function Button({onClick,children}){
+//     return(
+//         <>
+//          <button onClick={onClick}>{children}</button>
+//         </>
+//     )
+// }
+
+// function Upload(){
+//     function updateHandle(){
+//         console.log('update upload')
+//     }
+//     return(
+//         <>
+//          <Button onClick={updateHandle}>Click upload</Button>
+//         </>
+//     )
+// }
+
+// function Alert({messagebox}){
+//     function updateAlert(){
+//         console.log('update alert')
+//     }
+//     return(
+//         <>
+//         {messagebox}
+//          <Button onClick={updateAlert}>Click alert</Button>
+//         </>
+//     )
+// }
 
 // function ExampleAlert({message,children}){
 //     return(
@@ -122,26 +299,26 @@ function Alert({messagebox}){
 //   }
 
 
-  function Data(){
-    return(
-        <>
-        {people.map((val) => {
-            const {name,profession,accomplishment} = val;
-            return(
-                <>{name} - {profession} - {accomplishment} <br/></>
-            )
-        })}</>
-    )
-  }
+//   function Data(){
+//     return(
+//         <>
+//         {people.map((val) => {
+//             const {name,profession,accomplishment} = val;
+//             return(
+//                 <>{name} - {profession} - {accomplishment} <br/></>
+//             )
+//         })}</>
+//     )
+//   }
 
 
-function Item({name,isPacked}){
-    return(
-        <>
-         {name} - {isPacked && '✔'}
-        </>
-    )
-}
+// function Item({name,isPacked}){
+//     return(
+//         <>
+//          {name} - {isPacked && '✔'}
+//         </>
+//     )
+// }
 
 // function Item({name,isPacked}){
 //     return(
