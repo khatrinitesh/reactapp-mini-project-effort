@@ -1,9 +1,12 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect,useReducer,useRef} from 'react';
 import getImageUrl from './utils';
 import {people} from './data';
 // import { itemClassName } from 'react-horizontal-scrolling-menu/dist/types/constants';
 // import { DateRange } from '@material-ui/icons';
-import {sculptureList} from './data2';
+// import {sculptureList} from './data2';
+import Section from './section';
+import Heading from './heading';
+import {initialTravelPlan} from "./places";
 
 export default function CustomApp() {
 
@@ -47,86 +50,964 @@ export default function CustomApp() {
         <Item name="manisha" isPacked={false}/>
         <br/> */}
         {/* <ToggleSwitch/> */}
-        <TrafficLight/>
-
+        {/* <TrafficLight/> */}
+        {/* <MovingDot/> */}
+        {/* <FormExample/> */}
+        {/* <ArrayExample/> */}
+        {/* <ManagingState/> */}
+        {/* <Accordion/> */}
+        {/* <Messenger/> */}
+        {/* <TaskApp/> */}
+        {/* <Section>
+            <Heading>Title</Heading>
+            <Section>
+                <Heading>Heading</Heading>
+                <Heading>Heading</Heading>
+                <Heading>Heading</Heading>
+                    <Section>
+                        <Heading>Sub-heading</Heading>
+                        <Heading>Sub-heading</Heading>
+                        <Heading>Sub-heading</Heading>
+                        <Section>
+                            <Heading>Sub-sub-heading</Heading>
+                            <Heading>Sub-sub-heading</Heading>
+                            <Heading>Sub-sub-heading</Heading>
+                    </Section>
+                </Section>
+            </Section>
+        </Section> */}
+        {/* <PlaceTree/> */}
+        {/* <ColorExample/> */}
+        {/* <Child>nitesh khatri</Child> */}
+        {/* <ExampleVideo/> */}
+        <Clicked/>
     </div>
   )
 }
 
+function Clicked(){
 
-function TrafficLight(){
-    const [text,setText] = useState(true)
+    const [count,setCount] = useState(0);
 
-    function changeToggle(){
-        setText(!text);
+    const ref = useRef(0)
+
+    function btnClick(){
+        ref.current = ref.current+1
+        setCount(prev => prev + 1)
     }
     return(
         <>
-         <button onClick={changeToggle}>Change to {text ? 'Stop' : 'Walk'}</button>
-         {text ? <Walk/> : <Stop/>}
+        <button onClick={btnClick}>clicked {ref.current}</button>
         </>
     )
 }
 
-function Walk(){
-    return(
-        <>
-         <span className="textgreen">Walk</span>
-        </>
-    )
-}
-function Stop(){
-    return(
-        <>
-         <span className="textred">Stop</span>
-        </>
-    )
-}
+function ExampleVideo(){
+    const [isPlaying, setIsPlaying] = useState(false);
 
-function Form(){
-
-    const [to,setTo] = useState('Nitesh');
-    const [message,setMessage] = useState('Hi');
-
-    const handleSubmit= (e) => {
-        e.preventDefault();
-        setTimeout(() => {
-            console.log(`you said ${message} to ${to}`)
-        },1000)
+    function handlePlay(){
+        setIsPlaying(!isPlaying)
     }
+    
     return(
         <>
-         <form onSubmit={handleSubmit}>
-            <label>
-                to: {" "}
-                <select value={to} onChange={e => setTo(e.target.value)}>
-                    <option value="nitesh">Nitesh</option>
-                    <option value="sameet">Sameet</option>
-                </select>
-            </label>
-            <textarea value={message} onChange={(e) => setMessage(e.target.value)}/>
-            <button>Send</button>
-         </form>
+        <button onClick={handlePlay}>
+            {isPlaying ? 'Pause' : 'Play'}
+        </button>
+        <VideoExample
+            isPlaying={isPlaying}
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        />
         </>
     )
 }
 
 
+function VideoExample({src,isPlaying}){
+    const ref = useRef(null);
 
-function Counter(){
+    useEffect(() => {
+        if (isPlaying) {
+          ref.current.play();
+        } else {
+          ref.current.pause();
+        }
+      }, [isPlaying]);
 
-    const [counter,setCounter] = useState(0);
-
-    const btnCount= () => {
-        setCounter(counter  + 5)
-    }
-    return(
-        <>
-        {counter}
-         <button onClick={btnCount}>+3</button>
-        </>
-    )
+    return <video src={src} ref={ref} loop playsInline />
 }
+
+
+// function Child({children}){
+//     return(
+//         <>
+//         <div className='children'>
+//             {children}
+//         </div></>
+//     )
+// }
+
+// function ColorExample() {
+//     const time = useTime();
+//     const [color, setColor] = useState('lightcoral');
+//     return (
+//       <div>
+//         <p>
+//           Pick a color:{' '}
+//           <select value={color} onChange={e => setColor(e.target.value)}>
+//             <option value="lightcoral">lightcoral</option>
+//             <option value="midnightblue">midnightblue</option>
+//             <option value="rebeccapurple">rebeccapurple</option>
+//           </select>
+//         </p>
+//         <Clock color={color} time={time.toLocaleTimeString()} />
+//       </div>
+//     );
+//   }
+
+// function Clock({ color, time }) {
+//     return (
+//       <h1 style={{ color: color }}>
+//         {time}
+//       </h1>
+//     );
+//   }
+
+
+// function useTime() {
+//     const [time, setTime] = useState(() => new Date());
+//     useEffect(() => {
+//       const id = setInterval(() => {
+//         setTime(new Date());
+//       }, 1000);
+//       return () => clearInterval(id);
+//     }, []);
+//     return time;
+//   }
+
+// function PlaceTree({ id, placesById }) {
+//     const place = placesById[id];
+//     const childIds = place.childIds;
+//     return (
+//       <li>
+//         {place.title}
+//         {childIds.length > 0 && (
+//           <ol>
+//             {childIds.map(childId => (
+//               <PlaceTree
+//                 key={childId}
+//                 id={childId}
+//                 placesById={placesById}
+//               />
+//             ))}
+//           </ol>
+//         )}
+//       </li>
+//     );
+//   }
+  
+//   function TravelPlan() {
+//     const [plan, setPlan] = useState(initialTravelPlan);
+//     const root = plan[0];
+//     const planetIds = root.childIds;
+//     return (
+//       <>
+//         <h2>Places to visit</h2>
+//         <ol>
+//           {planetIds.map(id => (
+//             <PlaceTree
+//               key={id}
+//               id={id}
+//               placesById={plan}
+//             />
+//           ))}
+//         </ol>
+//       </>
+//     );
+//   }
+
+// function TaskApp() {
+//     const [tasks, dispatch] = useReducer(
+//       tasksReducer,
+//       initialTasks
+//     );
+  
+//     function handleAddTask(text) {
+//       dispatch({
+//         type: 'added',
+//         id: nextId++,
+//         text: text,
+//       });
+//     }
+  
+//     function handleChangeTask(task) {
+//       dispatch({
+//         type: 'changed',
+//         task: task
+//       });
+//     }
+  
+//     function handleDeleteTask(taskId) {
+//       dispatch({
+//         type: 'deleted',
+//         id: taskId
+//       });
+//     }
+  
+//     return (
+//       <>
+//         <h1>Prague itinerary</h1>
+//         <AddTask
+//           onAddTask={handleAddTask}
+//         />
+//         <TaskList
+//           tasks={tasks}
+//           onChangeTask={handleChangeTask}
+//           onDeleteTask={handleDeleteTask}
+//         />
+//       </>
+//     );
+//   }
+
+// function tasksReducer(tasks, action) {
+//     switch (action.type) {
+//       case 'added': {
+//         return [...tasks, {
+//           id: action.id,
+//           text: action.text,
+//           done: false
+//         }];
+//       }
+//       case 'changed': {
+//         return tasks.map(t => {
+//           if (t.id === action.task.id) {
+//             return action.task;
+//           } else {
+//             return t;
+//           }
+//         });
+//       }
+//       case 'deleted': {
+//         return tasks.filter(t => t.id !== action.id);
+//       }
+//       default: {
+//         throw Error('Unknown action: ' + action.type);
+//       }
+//     }
+//   }
+  
+//   let nextId = 3;
+//   const initialTasks = [
+//     { id: 0, text: 'Visit Kafka Museum', done: true },
+//     { id: 1, text: 'Watch a puppet show', done: false },
+//     { id: 2, text: 'Lennon Wall pic', done: false }
+//   ];
+  
+
+// function Messenger() {
+//     const [to, setTo] = useState(contacts[0]);
+//     return (
+//       <div>
+//         <ContactList
+//           contacts={contacts}
+//           selectedContact={to}
+//           onSelect={contact => setTo(contact)}
+//         />
+//         <Chat contact={to} />
+//       </div>
+//     )
+//   }
+  
+//   const contacts = [
+//     { name: 'X', email: 'xxx@mail.com' },
+//     { name: 'Y', email: 'yyy@mail.com' },
+//     { name: 'Z', email: 'zzz@mail.com' }
+//   ];
+
+// function ContactList({
+//     selectedContact,
+//     contacts,
+//     onSelect
+//   }) {
+//     return (
+//       <section className="contact-list">
+//         <ul>
+//           {contacts.map(contact =>
+//             <li key={contact.email}>
+//               <button onClick={() => {
+//                 onSelect(contact);
+//               }}>
+//                 {contact.name}
+//               </button>
+//             </li>
+//           )}
+//         </ul>
+//       </section>
+//     );
+//   }
+
+// function Chat({ contact }) {
+//   const [text, setText] = useState('');
+//   return (
+//     <section className="chat">
+//       <textarea
+//         value={text}
+//         placeholder={'Chat to ' + contact.name}
+//         onChange={e => setText(e.target.value)}
+//       />
+//       <br />
+//       <button>Send to {contact.email}</button>
+//     </section>
+//   );
+// }
+
+// function Accordion(){
+//     const [activeIndex, setActiveIndex] = useState(0);
+
+//     return (
+//         <>
+//           <h2>Almaty, Kazakhstan</h2>
+//           <Panel
+//             title="About"
+//             isActive={activeIndex === 0}
+//             onShow={() => setActiveIndex(0)}
+//           >
+//             With a population of about 2 million, Almaty is Kazakhstan's largest city. From 1929 to 1997, it was its capital city.
+//           </Panel>
+//           <Panel
+//             title="Etymology"
+//             isActive={activeIndex === 1}
+//             onShow={() => setActiveIndex(1)}
+//           >
+//             The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for "apple" and is often translated as "full of apples". In fact, the region surrounding Almaty is thought to be the ancestral home of the apple, and the wild <i lang="la">Malus sieversii</i> is considered a likely candidate for the ancestor of the modern domestic apple.
+//           </Panel>
+//         </>
+//     )
+// }
+
+// function Panel({
+//     title,
+//     children,
+//     isActive,
+//     onShow
+//   }) {
+//     return (
+//       <section className="panel">
+//         <h3>{title}</h3>
+//         {isActive ? (
+//           <p>{children}</p>
+//         ) : (
+//           <button onClick={onShow}>
+//             Show
+//           </button>
+//         )}
+//       </section>
+//     );
+//   }
+
+
+
+// function ManagingState(){
+//     const [answer,setAnswer] = useState('');
+//     const [error,setError] = useState(null);
+//     const [status,setStatus] = useState('typing');
+
+
+//     if(status === 'success'){
+//         return <h1>That's right!</h1>
+//     }
+
+//     async function handleSubmit(e) {
+//         e.preventDefault();
+//         setStatus('submitting');
+//         try {
+//           await submitForm(answer);
+//           setStatus('success');
+//         } catch (err) {
+//           setStatus('typing');
+//           setError(err);
+//         }
+//       }
+    
+//       function handleTextareaChange(e) {
+//         setAnswer(e.target.value);
+//       }
+
+
+
+//     return(
+//         <>
+//             <h2>City quiz</h2>
+//             <p>
+//                 In which city is there a billboard that turns air into drinkable water?
+//             </p>
+//             <form onSubmit={handleSubmit}>
+//                 <textarea value={answer} onChange={handleTextareaChange} disabled={status === 'submitting'}/>
+//                 <br />
+//                 <button disabled={answer.length === 0 || status === "submitting"}>Submit</button>
+//                 {error !== null && <p className='Error'>{error.message}</p>}
+//             </form>
+//         </>
+//     )
+// }
+
+// function submitForm(answer) {
+//     // Pretend it's hitting the network.
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         let shouldError = answer.toLowerCase() !== 'lima'
+//         if (shouldError) {
+//           reject(new Error('Good guess but a wrong answer. Try again!'));
+//         } else {
+//           resolve();
+//         }
+//       }, 1500);
+//     });
+//   }
+  
+
+// function ArrayExample(){
+//     const initialProducts = [{
+//         id: 0,
+//         name: 'Baklava',
+//         count: 1,
+//       }, {
+//         id: 1,
+//         name: 'Cheese',
+//         count: 5,
+//       }, {
+//         id: 2,
+//         name: 'Spaghetti',
+//         count: 2,
+//       }];
+
+      
+
+//       const [products,setProducts] = useState(initialProducts);
+
+//       function handleInc(productId){
+//         setProducts(products.map(val =>{
+//             if(val.id === productId){
+//                 return{
+//                     ...val,
+//                     count:val.count+1
+//                 }
+//             }
+//             else{
+//                 return val
+//             }
+//         }))
+//       }
+
+//     return(
+//         <>
+//          <ul>
+//          {products.map(product => (
+//                 <li key={product.id}>
+//                 {product.name}
+//                 {' '}
+//                 (<b>{product.count}</b>)
+//                 <button onClick={() => {
+//                     handleInc(product.id);
+//                 }}>
+//                     +
+//                 </button>
+//                 </li>
+//             ))}
+//          </ul>
+//         </>
+//     )
+// }
+
+
+// function ArrayExample(){
+//     let nextId = 3;
+//     const initialArtists = [
+//         { id: 0, name: 'Marta Colvin Andrade' },
+//         { id: 1, name: 'Lamidi Olonade Fakeye'},
+//         { id: 2, name: 'Louise Nevelson'},
+//     ]
+
+//     const [name,setName] = useState('')
+//     const [artists,setArtists] = useState(initialArtists)
+
+//     function handleClick() {
+//         const insertAt = 1; // Could be any index
+//         const nextArtists = [
+//           // Items before the insertion point:
+//           ...artists.slice(0, insertAt),
+//           // New item:
+//           { id: nextId++, name: name },
+//           // Items after the insertion point:
+//           ...artists.slice(insertAt)
+//         ];
+//         setArtists(nextArtists);
+//         setName('');
+//       }
+
+//     return(
+//         <>
+//          <h1>Inspiring sculptors:</h1>
+//             <input
+//                 value={name}
+//                 onChange={e => setName(e.target.value)}
+//             />
+//             <button onClick={handleClick}>
+//                 Insert
+//             </button>
+//             <ul>
+//                 {artists.map(artist => (
+//                 <li key={artist.id}>{artist.name} 
+//                 <button onClick={() => btnReove}></button></li>
+//                 ))}
+//             </ul>
+//         </>
+//     )
+// }
+
+// function ArrayExample(){
+//     let initialCounters = [0,0,0]
+
+//     const [counters,setCounters] = useState(initialCounters);
+
+//     function handleInc(index){
+//         const nextData = counters.map((c,i) => {
+//             if(i === index){
+//                 return c + 1 
+//             }
+//             else{
+//                 return c;
+//             }
+//         });
+//         setCounters(nextData)
+//     }
+
+
+
+//     return(
+//         <>
+//             {counters.map((counter,i) => {
+//                 return(
+//                     <li key={i}>
+//                         {counter}
+//                         <button onClick={() => handleInc(i)}>+1</button>
+//                     </li>
+//                 )
+//             })}
+//         </>
+//     )
+// }
+
+// function ArrayExample(){
+//     let initialShapes = [
+//         { id: 0, type: 'circle', x: 50, y: 100 },
+//         { id: 1, type: 'square', x: 150, y: 100 },
+//         { id: 2, type: 'circle', x: 250, y: 100 },
+//     ];
+
+//     const [shapes,setShapes] = useState(initialShapes);
+
+//     function handleClick() {
+//         const nextShapes = shapes.map(shape => {
+//           if (shape.type === 'square') {
+//             // No change
+//             return shape;
+//           } else {
+//             // Return a new circle 50px below
+//             return {
+//               ...shape,
+//               y: shape.y + 50,
+//             };
+//           }
+//         });
+//         // Re-render with the new array
+//         setShapes(nextShapes);
+//       }
+
+
+//     return(
+//         <>
+//          <button onClick={handleClick}>move circles down!</button>
+//          {shapes.map((shape) => {
+//             return(
+//                 <div key={shape.id} style={{background: 'purple',
+//                 position: 'absolute',
+//                 left: shape.x,
+//                 top: shape.y,borderRadius:shape.type === 'circle' ? '50%' : '',width:20,height:20}}></div>
+//             )
+//          })}
+//         </>
+//     )
+// }
+
+// function ArrayExample(){
+//     let initialArtists = [
+//         { id: 0, name: 'Marta Colvin Andrade' },
+//         { id: 1, name: 'Lamidi Olonade Fakeye'},
+//         { id: 2, name: 'Louise Nevelson'},
+//       ];
+
+//       const [user,setUser] = useState(initialArtists);
+
+//    const btnRemove = (id) => {
+//     user.splice(id,1)
+//     setUser([...user])
+//    }
+//     // const btnRemove = (id) => {
+//     //         const finalData = user.filter((val) => val.id !== id)
+//     //         setUser(finalData);
+//     //   }
+
+
+//     return(
+//         <>
+//          <h1>Inspiring sculptors:</h1>
+//          <ul>
+//             {user.map((val) => {
+//                 return(
+//                     <li key={val.id}>
+//                         {val.name}
+//                         <button onClick={(e) => btnRemove(val.id)}>Remove</button>
+//                     </li>
+//                 )
+//             })}
+//          </ul>
+//         </>
+//     )
+// }
+
+// function ArrayExample(){
+
+//     let nextId = 0;
+
+//     const [name,setName] = useState('');
+//     const [artists,setArtists] = useState([]);
+
+//     const btnAdd = (e) => {
+//         setArtists([
+//             ...artists,
+//             {
+//                 id:nextId,
+//                 name:name
+//             }
+//         ])
+//     }
+
+//     const btnRemove = (id) => {
+//         artists.splice(id,1);
+//         setArtists([...artists])
+//     }
+
+
+//     return(
+//         <>
+//          <h1>Inspiring sculptors:</h1>
+//          <input type='text' value={name} onChange={(e) => setName(e.target.value)}/>
+//          <button onClick={btnAdd}>Add</button>
+//          <ul>
+//             {artists.map((val) =>{
+//                 return(
+//                     <li key={val.id}>{val.name} <button onClick={() => btnRemove(val.id)}>Remove</button></li>
+//                 )
+//             })}
+//          </ul>
+//         </>
+//     )
+// }
+
+// function ArrayExample(){
+//     let nextId = 0 ;
+
+//     const [name,setName] = useState('')
+//     const [artists,setArtists] = useState([]);
+
+
+//     return(
+//         <>
+//          <h1>Inspiring sculptors:</h1>
+//          <input type="text" value={name} onChange={e => setName(e.target.value)}/>
+//          <button onClick={() => artists.push({id:nextId++,name:name})}>Add</button>
+//          <ul>
+//             {artists.map((artist) => {
+//                 return(
+//                     <li key={artist.id}>
+//                         {artist.name}
+//                     </li>
+//                 )
+//             })}
+//          </ul>
+//         </>
+//     )
+// }
+
+// function FormExample(){
+
+//     const [person,updatePerson] = useState({
+//         name:'Niki de Saint Phalle',
+//         artwork:{
+//             title:'Blue Nana',
+//             city:'Hamburg',
+//             img:'https://i.imgur.com/Sd1AgUOm.jpg',
+//         }
+//     });
+//     function handleNameChange(e){
+//         updatePerson(draft => {
+//             draft.name = e.target.value;
+//         })
+//     }
+//     function handleTitleChange(e){
+//         updatePerson(draft => {
+//             draft.artwork.title= e.target.value;
+//         })
+//     }
+//     function handleCityChange(e){
+//         updatePerson(draft => {
+//             draft.artwork.city = e.target.value;
+//         })
+//     }
+//     function handleImageChange(e){
+//         updatePerson(draft => {
+//             draft.artwork.img = e.target.value;
+//         })
+//     }
+//     return(
+//         <>
+//             <label>
+//                 Name: 
+//                 <input type="text" value={person.name} onChange={handleNameChange}/>
+//             </label>
+//             <br/>
+//             <label>
+//                 Title: 
+//                 <input type="text" value={person.artwork.title} onChange={handleNameChange}/>
+//             </label>
+//             <br/>
+//             <label>
+//                 City: 
+//                 <input type="text" value={person.artwork.city} onChange={handleNameChange}/>
+//             </label>
+//             <br/>
+//             <label>
+//                 Image: 
+//                 <input type="text" value={person.artwork.img} onChange={handleNameChange}/>
+//             </label>
+//             <br/>
+//             <img src={person.artwork.img}/>
+//         </>
+//     )
+// }
+
+// function FormExample(){
+//     const [person,setPerson] = useState({
+//         name: 'Niki de Saint Phalle',
+//         artwork: {
+//             title: 'Blue Nana',
+//             city: 'Hamburg',
+//             image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+//         }
+//     });
+
+//     const handleNameChange = (e) => {
+//         setPerson({
+//             ...person,
+//             name:e.target.value
+//         })
+//     }
+//     const handleTitleChange = (e) => {
+//         setPerson({
+//             ...person,
+//             title:e.target.value
+//         })
+//     }
+//     const handleCityChange = (e) => {
+//         setPerson({
+//             ...person,
+//             city:e.target.value
+//         })
+//     }
+//     const handleImageChange = (e) => {
+//         setPerson({
+//             ...person,
+//             image:e.target.value
+//         })
+//     }
+
+
+//     return(
+//         <>
+//          <label>
+//             Name: <input value={person.name} onChange={handleNameChange}/>
+//          </label>
+//          <label>
+//             Title: <input value={person.artwork.title} onChange={handleTitleChange}/>
+//          </label>
+//          <label>
+//             City: <input value={person.artwork.city} onChange={handleCityChange}/>
+//          </label>
+//          <label>
+//             Image: <input value={person.artwork.image} onChange={handleImageChange}/>
+//         </label>
+//         <hr/>
+//         {person.name}
+//         <br/>
+//         {person.artwork.title}
+//         <br/>
+//         {person.artwork.city}
+//         <br/>
+//         <img src={person.artwork.image} alt={person.artwork.title}/>
+//         <br/>
+//         </>
+//     )
+// }
+
+// function FormExample(){
+//     const [person,setPerson] = useState({
+//         firstName:'nitesh',
+//         lastName:"khatri",
+//         email:"nitesh.khatri88@gmail.com"
+//     });
+
+//     const handleChange = (e) => {
+//         setPerson({
+//             ...person,
+//             [e.target.name]:e.target.value
+//         })
+//     }
+//     return(
+//         <>
+//         <form>
+//             <label>
+//                 First name:
+//                 <input type="text" value={person.firstName} onChange={handleChange}/>
+//             </label>
+//             <label>
+//                 Last name: 
+//                 <input type="text" value={person.lastName} onChange={handleChange}/>
+//             </label>
+//             <label>
+//                 Email: 
+//                 <input type="text" value={person.email} onChange={handleChange}/>
+//             </label>
+//         </form>
+//         <p>
+//             {person.firstName} { " "}
+//             {person.lastName} { " "}
+//             {person.email} { " "}
+//         </p>
+//         </>
+//     )
+// }
+
+// function MovingDot(){
+
+//     const [position,setPosition] = useState({
+//         x:0,
+//         y:0,
+//     });
+
+
+//     const handleMove = (e) => {
+//         setPosition({
+//             x:e.clientX,
+//             y:e.clientY
+//         })
+//     }
+
+//     return(
+//         <>
+//             <div onPointerMove={handleMove} style={{ position: 'relative',
+//         width: '100vw',
+//         height: '100vh',}}>
+//             <div style={{
+//         position: 'absolute',
+//         backgroundColor: 'red',
+//         borderRadius: '50%',
+//         transform: `translate(${position.x}px, ${position.y}px)`,
+//         left: -10,
+//         top: -10,
+//         width: 20,
+//         height: 20,
+//       }} />
+//         </div>
+         
+//         </>
+//     )
+// }
+
+
+// function TrafficLight(){
+//     const [text,setText] = useState(true)
+
+//     function changeToggle(){
+//         setText(!text);
+//     }
+//     return(
+//         <>
+//          <button onClick={changeToggle}>Change to {text ? 'Stop' : 'Walk'}</button>
+//          {text ? <Walk/> : <Stop/>}
+//         </>
+//     )
+// }
+
+// function Walk(){
+//     return(
+//         <>
+//          <span className="textgreen">Walk</span>
+//         </>
+//     )
+// }
+// function Stop(){
+//     return(
+//         <>
+//          <span className="textred">Stop</span>
+//         </>
+//     )
+// }
+
+// function Form(){
+
+//     const [to,setTo] = useState('Nitesh');
+//     const [message,setMessage] = useState('Hi');
+
+//     const handleSubmit= (e) => {
+//         e.preventDefault();
+//         setTimeout(() => {
+//             console.log(`you said ${message} to ${to}`)
+//         },1000)
+//     }
+//     return(
+//         <>
+//          <form onSubmit={handleSubmit}>
+//             <label>
+//                 to: {" "}
+//                 <select value={to} onChange={e => setTo(e.target.value)}>
+//                     <option value="nitesh">Nitesh</option>
+//                     <option value="sameet">Sameet</option>
+//                 </select>
+//             </label>
+//             <textarea value={message} onChange={(e) => setMessage(e.target.value)}/>
+//             <button>Send</button>
+//          </form>
+//         </>
+//     )
+// }
+
+
+
+// function Counter(){
+
+//     const [counter,setCounter] = useState(0);
+
+//     const btnCount= () => {
+//         setCounter(counter  + 5)
+//     }
+//     return(
+//         <>
+//         {counter}
+//          <button onClick={btnCount}>+3</button>
+//         </>
+//     )
+// }
 
 // function Project(){
 
